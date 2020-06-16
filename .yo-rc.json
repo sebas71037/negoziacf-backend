@@ -1,0 +1,17 @@
+{
+  "generator-ng-fullstack": {
+    "appName": "negoziacf-backend",
+    "username": "sebas71037",
+    "userEmail": "sebas71037@gmail.com",
+    "stack": "server",
+    "repoHostUrl": "bitbucket.org",
+    "userNameSpace": "sebas71037",
+    "client": "",
+    "server": "node",
+    "nodeWebFrameworkServer": "express",
+    "transpilerServer": "typescript",
+    "secure": false,
+    "testsSeparated": false,
+    "boilerplate": false
+  }
+}

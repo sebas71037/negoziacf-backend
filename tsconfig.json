@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "lib": ["es5", "es6"],
+    "sourceMap": true,
+    "outDir": "./build",
+    "rootDir": "./src",
+    "removeComments": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@api/*": ["src/server/api/*"],
+      "@utils/*": ["src/server/utils/*"],
+      "@constants/*": ["src/server/constants/*"],
+      "@handler/*": ["src/server/handler/*"],
+      "@libs/*": ["src/server/libs/*"],
+      "@config/*": ["src/server/config/*"],
+      "@interfaces/*": ["src/server/interfaces/*"],
+      "@policy/*": ["src/server/policy/*"],
+      "@customtypes/*": ["src/server/types/*"]
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["node_modules"],
+  "filesGlob": ["**/*.ts"]
+}

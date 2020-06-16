@@ -1,0 +1,4 @@
+{
+    "script": "npm run start", 
+    "args": "src/index.ts"
+}
