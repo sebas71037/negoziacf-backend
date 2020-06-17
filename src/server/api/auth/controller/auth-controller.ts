@@ -83,7 +83,6 @@ export class AuthController {
       user.lastname = userBody.lastname;
       user.email = userBody.email;
       user.sex = userBody.sex;
-      user.password = userBody.password;
       user.phone = userBody.phone;
       user.phoneTypeId = userBody.phoneTypeId;
       user.password = await this.user.getHash(userBody.password);

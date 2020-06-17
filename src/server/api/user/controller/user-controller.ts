@@ -71,7 +71,6 @@ export class UserController {
       user.lastname = userBody.lastname;
       user.email = userBody.email;
       user.sex = userBody.sex;
-      user.password = userBody.password;
       user.phone = userBody.phone;
       user.phoneTypeId = userBody.phoneTypeId;
       user.password = await this.user.getHash(userBody.password);
@@ -103,15 +102,16 @@ export class UserController {
 
       user.name = userBody.name;
       user.lastname = userBody.lastname;
-      user.email = userBody.email;
       user.sex = userBody.sex;
       user.phone = userBody.phone;
       user.phoneTypeId = userBody.phoneTypeId;
 
       const emailExist = await this.user.getBy({ email: userBody.email });
+
       if (emailExist.length > 0 && user.email !== emailExist[0].email) {
         throw new ErrorManage(403, 'user-email-exist', 'Email exist');
       }
+      user.email = userBody.email;
 
       if (
         userBody.password &&
