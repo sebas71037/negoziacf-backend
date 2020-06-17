@@ -36,36 +36,36 @@ export function unCoughtErrorHandler(
   res: Response,
   next: NextFunction,
 ) {
-  const ErrorManage = new ErrorManage();
+  const errorManage = new ErrorManage();
 
   console.error(err);
-  logger.log(ErrorManage.loggerLevel, JSON.stringify(err));
+  logger.log(errorManage.loggerLevel, JSON.stringify(err));
   res
-    .status(ErrorManage.status)
-    .json({ slug: ErrorManage.slug, message: ErrorManage.message });
+    .status(errorManage.status)
+    .json({ slug: errorManage.slug, message: errorManage.message });
 }
 
 export function apiErrorHandler(err: any, req: Request, res: Response) {
-  let ErrorManage: ErrorManage;
+  let errorManage: ErrorManage;
   if (err.slug) {
-    ErrorManage = err;
+    errorManage = err;
   } else {
     console.error(err);
-    ErrorManage = new ErrorManage();
+    errorManage = new ErrorManage();
   }
 
   const error: object = {
-    slug: ErrorManage.slug,
-    message: ErrorManage.message,
+    slug: errorManage.slug,
+    message: errorManage.message,
     Request: {
       url: req.url,
       method: req.method,
     },
-    Stack: ErrorManage.stack,
+    Stack: errorManage.stack,
   };
 
-  logger.log(ErrorManage.loggerLevel, JSON.stringify(error));
+  logger.log(errorManage.loggerLevel, JSON.stringify(error));
   res
-    .status(ErrorManage.status)
-    .json({ slug: ErrorManage.slug, message: ErrorManage.message });
+    .status(errorManage.status)
+    .json({ slug: errorManage.slug, message: errorManage.message });
 }
